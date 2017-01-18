@@ -18,11 +18,11 @@ The prediction part aims to
 - test the prediction accuracy
 
 The prediction logic is based on a very simple Linear Regression Model. 
-The model is formed from the future Vector, DAY_OF_YEAR and formed on the following basic logic:
+The model is formed from the feature Vector with the variable representing the DAY_OF_YEAR and formed on the following basic logic:
 
 The closer the days are to the first days of July, the higher the temperatures are.
 The far the days go from the mid year (taken as the 183th DAY_OF_YEAR), the lower the temperatures go.
-
+So the variable is the distance from the midyear in day-basis. 1st of January is 182 days away from the mid-year which is the farest day.
 ## Data:
 
 Data has been fetched from 
