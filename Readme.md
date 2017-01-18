@@ -65,6 +65,23 @@ There are test cases both for analysis and prediction. They have been put to the
 ```sh
 sh> sbt test
 ```
+
+## Technical Notes
+The package object serves as a utility package object, that encapsulates the implicits as well as utility functions and constants. Normally these could be
+separated into different objects, however, the tradeoff would be the simplicity of the main workflow of the problem.
+
+Cats library and monoids' combine operation has been applied on DailyWeather data.
+|+| operation serves as a merge function between 2 DailyWeather objects
+that have the same key.(reduceByKey). Different values for the same day
+are found in seperate lines in the input file. So what is done is
+create a few objects for the same day, and them merge them into one.
+So simply:
+```
+val dailyWeather0 = DailyWeather(keys, ..., TMinValue, 0, ...)
+val dailyWeather1 = DailyWeather(keys, ..., 0, TMaxValue, ...)```
+dailyWeather0 |+| dailyWeather1 operation merges the 2 and forms
+DailyWeather(keys, ..., TminValue, TMaxValue, 0, ...)
+
 ## Contributors
 
 Mehmet Oguz Divilioglu, Email: mo.divilioglu@gmail.com
