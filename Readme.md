@@ -78,7 +78,8 @@ create a few objects for the same day, and them merge them into one.
 So simply:
 ```
 val dailyWeather0 = DailyWeather(keys, ..., TMinValue, 0, ...)
-val dailyWeather1 = DailyWeather(keys, ..., 0, TMaxValue, ...)```
+val dailyWeather1 = DailyWeather(keys, ..., 0, TMaxValue, ...)
+```
 dailyWeather0 |+| dailyWeather1 operation merges the 2 and forms
 DailyWeather(keys, ..., TminValue, TMaxValue, 0, ...)
 
